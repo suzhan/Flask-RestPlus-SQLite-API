@@ -2,7 +2,6 @@ import uuid
 
 from app.main import db
 from app.main.model.host import Host
-from app.main.model.drive import Drive
 
 
 def save_new_host(data):
@@ -14,8 +13,7 @@ def save_new_host(data):
             cpu=data['cpu'],
             memory=data['memory'],
             private_ip=data['private_ip'],
-            public_ip=data['public_ip'],
-            drives=data['drives']
+            public_ip=data['public_ip']
         )
         return save_changes(new_host)
     else:
@@ -34,8 +32,8 @@ def get_a_host(private_ip):
     return Host.query.filter_by(private_ip=private_ip).first()
 
 
-def get_a_host_os_drive(os_drive_id):
-    return Drive.query.filter_by(al_disk_id=os_drive_id).first()
+# def get_a_host_os_drive(os_drive_id):
+#     return Drive.query.filter_by(al_disk_id=os_drive_id).first()
 
 
 # def get_host_drive(host_id):

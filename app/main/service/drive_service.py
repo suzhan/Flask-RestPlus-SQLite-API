@@ -12,8 +12,7 @@ def save_new_drive(data):
             al_disk_id=data['al_disk_id'],
             device=data['device'],
             size=data['size'],
-            host_id=data['host_id'],
-            host=data['host']
+            host_id=data['host_id']
         )
         return save_changes(new_drive)
     else:

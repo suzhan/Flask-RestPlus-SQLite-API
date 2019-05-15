@@ -19,9 +19,7 @@ class HostDto:
         'cpu': fields.String(required=True, description='cpu'),
         'memory': fields.String(required=True, description='memory'),
         'private_ip': fields.String(required=True, description='private ip address'),
-        'public_ip': fields.String(description='public ip address'),
-        'os_drive_id': fields.String(description='OS Drive Identifier'),
-        'data_drive_id': fields.String(description='Data Drive Identifier')
+        'public_ip': fields.String(description='public ip address')
     })
 
 
@@ -31,5 +29,6 @@ class DriveDto:
         'al_disk_id': fields.String(required=True, description='aliyun disk id'),
         'device': fields.String(description='disk device name'),
         'size': fields.String(required=True, description='disk size'),
-        'host_id': fields.String(description='host Identifier')
+        'host_id': fields.Integer(description='host Identifier')
+        # 'host': fields.String(description='host')
     })
