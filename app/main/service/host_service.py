@@ -9,15 +9,13 @@ def save_new_host(data):
     host = Host.query.filter_by(private_ip=data['private_ip']).first()
     if not host:
         new_host = Host(
-            # host_id=str(uuid.uuid4()),
             name=data['name'],
             al_instance_id=data['al_instance_id'],
             cpu=data['cpu'],
             memory=data['memory'],
             private_ip=data['private_ip'],
             public_ip=data['public_ip'],
-            os_drive_id=data['os_drive_id'],
-            data_drive_id=data['data_drive_id']
+            drives=data['drives']
         )
         return save_changes(new_host)
     else:
