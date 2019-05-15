@@ -11,5 +11,13 @@ class Host(db.Model):
     memory = db.Column(db.String(255), nullable=False)
     private_ip = db.Column(db.String(255), unique=True, nullable=False)
     public_ip = db.Column(db.String(255), nullable=True)
-    os_drive_id = db.Column(db.String(100), unique=True)
-    data_drive_id = db.Column(db.String(100), unique=True)
+    # os_drive_id = db.Column(db.String(100), unique=True)
+    # data_drive_id = db.Column(db.String(100), unique=True)
+
+    drives = db.relationship('Drive', backref=db.backref('host', lazy='dynamic'))
+
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return '<Host %r>' % self.name
