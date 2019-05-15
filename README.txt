@@ -21,11 +21,6 @@
 │  │  │  │  user_controller.py
 │  │  │  │  __init__.py
 │  │  │  │  
-│  │  │  └─__pycache__
-│  │  │          device_controller.cpython-36.pyc
-│  │  │          host_controller.cpython-36.pyc
-│  │  │          user_controller.cpython-36.pyc
-│  │  │          __init__.cpython-36.pyc
 │  │  │          
 │  │  ├─model
 │  │  │  │  drive.py
@@ -33,11 +28,6 @@
 │  │  │  │  user.py
 │  │  │  │  __init__.py
 │  │  │  │  
-│  │  │  └─__pycache__
-│  │  │          drive.cpython-36.pyc
-│  │  │          host.cpython-36.pyc
-│  │  │          user.cpython-36.pyc
-│  │  │          __init__.cpython-36.pyc
 │  │  │          
 │  │  ├─service
 │  │  │  │  drive_service.py
@@ -45,11 +35,6 @@
 │  │  │  │  user_service.py
 │  │  │  │  __init__.py
 │  │  │  │  
-│  │  │  └─__pycache__
-│  │  │          drive_service.cpython-36.pyc
-│  │  │          host_service.cpython-36.pyc
-│  │  │          user_service.cpython-36.pyc
-│  │  │          __init__.cpython-36.pyc
 │  │  │          
 │  │  ├─util
 │  │  │  │  dto.py
@@ -64,8 +49,6 @@
 │  │          __init__.cpython-36.pyc
 │  │          
 │  ├─test
-│  └─__pycache__
-│          __init__.cpython-36.pyc
 │          
 │              
 ├─migrations
@@ -77,11 +60,6 @@
 │  ├─versions
 │  │  │  b25287a68039_.py
 │  │  │  
-│  │  └─__pycache__
-│  │          b25287a68039_.cpython-36.pyc
-│  │          
-│  └─__pycache__
-│          env.cpython-36.pyc
 │          
 ├─static
 └─templates
