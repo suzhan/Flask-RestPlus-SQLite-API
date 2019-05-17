@@ -29,6 +29,6 @@ class DriveDto:
         'al_disk_id': fields.String(required=True, description='aliyun disk id'),
         'device': fields.String(description='disk device name'),
         'size': fields.String(required=True, description='disk size'),
-        'host_id': fields.Integer(description='host Identifier')
+        'host_id': fields.String(description='host Identifier')
         # 'host': fields.String(description='host')
     })

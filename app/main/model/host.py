@@ -9,12 +9,10 @@ class Host(db.Model):
     al_instance_id = db.Column(db.String(255), unique=True, nullable=False)
     cpu = db.Column(db.String(255), nullable=False)
     memory = db.Column(db.String(255), nullable=False)
-    private_ip = db.Column(db.String(255), unique=True, nullable=False)
+    private_ip = db.Column(db.String, primary_key=True, unique=True, nullable=False)
     public_ip = db.Column(db.String(255), nullable=True)
-    # os_drive_id = db.Column(db.String(100), unique=True)
-    # data_drive_id = db.Column(db.String(100), unique=True)
 
     drive = db.relationship('Drive', backref=db.backref('hosts', lazy='joined'), lazy='dynamic')
 
-    def __repr__(self):
-        return '<Host %r>' % self.name
+    # def __repr__(self):
+    #     #     return "<Host '{}'>".format(self.private_ip)

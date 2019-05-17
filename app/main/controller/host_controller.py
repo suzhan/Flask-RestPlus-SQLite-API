@@ -1,17 +1,11 @@
 from flask import request
 from flask_restplus import Resource
 from ..util.dto import HostDto
-from ..service.host_service import save_new_host, get_all_hosts, get_a_host
-
-# from ..util.dto import DriveDto
-# from ..service.drive_service import save_new_drive, get_all_drive, get_a_drive
+from ..service.host_service import save_new_host, get_all_hosts, get_a_host, del_a_host, update_a_host
 
 
 api = HostDto.api
 _host = HostDto.host
-
-# api_d = DriveDto.api
-# _drive_d = DriveDto.drive
 
 
 @api.route('/')
@@ -30,7 +24,7 @@ class HostList(Resource):
 
 
 @api.route('/<private_ip>')
-@api.param('private_id', 'The host private ip address')
+@api.param('private_ip', 'The host private ip address')
 @api.response(404, 'Host not found.')
 class Host(Resource):
     @api.doc('get a host')
@@ -42,16 +36,19 @@ class Host(Resource):
         else:
             return host
 
+    @api.doc('delete a host')
+    @api.marshal_with(_host)
+    def delete(self, private_ip):
+        host = del_a_host(private_ip)
+        if not Host:
+            api.abort(404)
+        else:
+            return host
 
-# @api_d.route('/<os_drive_id>')
-# @api.param('al_disk_id', 'The host identifier')
-# @api.response(404, 'drive not found.')
-# class Drive(Resource):
-#     @api.doc('get a drive')
-#     @api.marshal_with(_drive_d)
-#     def get(self, al_disk_id):
-#         drive = get_a_drive(al_disk_id)
-#         if not drive:
-#             api.abort(404)
-#         else:
-#             return drive
+    @api.doc('update a host')
+    # @api.param('private_ip')
+    @api.marshal_with(_host)
+    @api.expect(_host)
+    def put(self, private_ip):
+        data = request.json
+        return update_a_host(private_ip, data)
