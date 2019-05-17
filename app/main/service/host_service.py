@@ -56,6 +56,12 @@ def update_a_host(private_ip, data):
             public_ip=data['public_ip']
         )
         return update_changes(update_host)
+    else:
+        response_object = {
+            'status': 'fail',
+            'message': 'Host not exists.'
+        }
+        return response_object, 409
 
 
 def save_changes(data):
